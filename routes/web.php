@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -33,5 +33,6 @@ Route::delete('/pizza/{id}/delete', [App\Http\Controllers\PizzaController::class
 
 //user order
 Route::get('/user/order',[App\Http\Controllers\UserOrderController::class, 'index'])->name('user.order');
+Route::post('/order/{id}/status',[App\Http\Controllers\UserOrderController::class, 'changeStatus'])->name('order.status');
 });
 
