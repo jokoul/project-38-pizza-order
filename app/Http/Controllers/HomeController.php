@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class HomeController extends Controller
         if(auth()->user()->is_admin == 1){
             return redirect()->route('user.order');
         }
-        $pizzas = Pizza::latest()->get();
-        return view('frontpage',compact('pizzas'));
+        // $pizzas = Pizza::latest()->get();
+        // return view('frontpage',compact('pizzas'));
+        $orders = Order::latest()->where('user_id',auth()->user()->id)->get();
+        return view('home',compact('orders'));
     }
 }

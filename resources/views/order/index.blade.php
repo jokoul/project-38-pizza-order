@@ -11,7 +11,13 @@
             </nav>
 
             <div class="card">
-                <div class="card-header">Order</div>
+                <div class="card-header">
+                    <span>Order</span>
+                    <div>
+                        <a class="link" href="{{ route('pizza.index') }}">View Pizza</a>
+                        <a class="link" href="{{ route('pizza.create') }}">Create Pizza</a>
+                    </div>
+                </div>
 
                 <div class="card-body">
                    <div class="table-responsive">
@@ -68,4 +74,27 @@
         </div>
     </div>
 </div>
+<style>
+    a.list-group-item{
+        font-size: 18px
+    }
+    a.list-group-item:hover{
+      background-color: rgb(177, 30, 30);
+      color: #fff;
+    }
+    .card-header{
+        background-color: rgb(177, 30, 30);
+        color: #fff;
+        font-size: 20px;
+    }
+    .link{
+        color: whitesmoke;
+        text-decoration: none; 
+        font-weight: 700
+    }
+    .link:hover{
+        color:rgba(245, 245, 245, 0.572);
+    }
+
+</style>
 @endsection
