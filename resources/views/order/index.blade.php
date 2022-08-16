@@ -25,6 +25,7 @@
                                 <th scope="col">Small pizza</th>
                                 <th scope="col">Medium pizza</th>
                                 <th scope="col">Large pizza</th>
+                                <th scope="col">Total($)</th>
                                 <th scope="col">Message</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Accept</th>
@@ -33,20 +34,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>mod</td>
-                                <td>mod</td>
-                                <td>mod</td>
-                                <td>mod</td>
-                                <td>mod</td>
-                                <td>mod</td>
-                                <td><button class="btn btn-primary">Accept</button></td>
-                                <td><button class="btn btn-primary">Reject</button></td>
-                                <td><button class="btn btn-primary">Complete</button></td>
-                            </tr>
+                                @foreach ($orders as $order)
+                                    <tr>
+                                        <th>{{ $order->id }}</th>
+                                        <td>{{ $order->phone }} / {{ $order->user->email }}</td>
+                                        <td>{{ $order->date }} / {{ $order->time }}</td>
+                                        <td>{{ $order->pizza->name }}</td>
+                                        <td>{{ $order->small_pizza }}</td>
+                                        <td>{{ $order->medium_pizza }}</td>
+                                        <td>{{ $order->large_pizza }}</td>
+                                        <td>{{ ($order->pizza->small_pizza_price * $order->small_pizza)+($order->pizza->medium_pizza_price * $order->medium_pizza)+($order->pizza->large_pizza_price * $order->large_pizza) }}</td>
+                                        <td>{{ $order->body }}</td>
+                                        <td>{{ $order->status }}</td>
+                                        <form action="{{ route('order.status',$order->id) }}" method="post">
+                                            @csrf
+                                            <td>
+                                                <input name="status" type="submit" value="accepted" class="btn btn-primary btn-sm">
+                                            </td>
+                                            <td>
+                                                <input name="status" type="submit" value="rejected" class="btn btn-danger btn-sm">
+                                            </td>
+                                            <td>
+                                                <input name="status" type="submit" value="completed" class="btn btn-success btn-sm">
+                                            </td>
+                                        </form>
+                                    </tr>
+                                @endforeach
                         </tbody>
                     </table>
                    </div>
