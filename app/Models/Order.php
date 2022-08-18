@@ -14,12 +14,10 @@ class Order extends Model
 
     public function user()
     {
-        // dd($this->belongsTo(User::class));
         return $this->belongsTo(User::class);
     }
     public function pizza()
     {
-        dd($this->belongsTo(Pizza::class));
-        return $this->belongsTo(Pizza::class);
+        return $this->belongsTo(Pizza::class,'pizza_id');
     }
 }

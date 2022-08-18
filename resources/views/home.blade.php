@@ -31,11 +31,14 @@
                                         <th>{{ $order->id }}</th>
                                         <td>{{ $order->phone }} / {{ $order->user->email }}</td>
                                         <td>{{ $order->date }} / {{ $order->time }}</td>
-                                        <td>{{ $order->pizza->name }}</td>
+                                         <td>{{ !empty( $order->pizza) ? $order->pizza->name : '' }}</td>
                                         <td>{{ $order->small_pizza }}</td>
                                         <td>{{ $order->medium_pizza }}</td>
                                         <td>{{ $order->large_pizza }}</td>
-                                        <td>{{ ($order->pizza->small_pizza_price * $order->small_pizza)+($order->pizza->medium_pizza_price * $order->medium_pizza)+($order->pizza->large_pizza_price * $order->large_pizza) }}</td>
+                                        <td>${{ (!empty( $order->pizza) ? $order->pizza->small_pizza_price * $order->small_pizza : 0)+
+                                            (!empty( $order->pizza) ? $order->pizza->medium_pizza_price * $order->medium_pizza : 0)+
+                                            (!empty( $order->pizza) ? $order->pizza->large_pizza_price * $order->large_pizza : 0)
+                                            }}</td>
                                         <td>{{ $order->body }}</td>
                                         <td>{{ $order->status }}</td>
                                     </tr>
