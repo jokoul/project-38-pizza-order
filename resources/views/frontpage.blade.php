@@ -7,19 +7,19 @@
             <div class="card">
                 <div class="card-header">Menu</div>
                 <div class="card-body">
-                   <ul class="list-group">
-                        <a href="" class="list-group-item list-group-item-action">Category1</a>
-                        <a href="" class="list-group-item list-group-item-action">Category2</a>
-                        <a href="" class="list-group-item list-group-item-action">Category3</a>
-                        <a href="" class="list-group-item list-group-item-action">Category4</a>
-                        <a href="" class="list-group-item list-group-item-action">Category5</a>
-                   </ul>    
+                    <form action="{{ route('frontpage') }}" method="get">
+                        <a class="list-group-item list-group-item-action" href="/">All</a> 
+                        <input type="submit" value="Vegetarian" name="category" class="list-group-item list-group-item-action"/>
+                        <input type="submit" value="Nonvegetarian" name="category" class="list-group-item list-group-item-action"/>
+                        <input type="submit" value="Traditional" name="category" class="list-group-item list-group-item-action"/>
+                    </form>
+                    {{-- <h1 class="text-center">{{ count($pizzas) }} pizzas</h1> --}}
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Pizza</div>
+                <div class="card-header">Pizza - {{ count($pizzas) }} pizzas</div>
                 <div class="card-body">
                    <div class="row">
                         @forelse ($pizzas as $pizza)

@@ -51,7 +51,7 @@
                                         <td>{{ $order->large_pizza }}</td>
                                         <td>{{ ($order->pizza->small_pizza_price * $order->small_pizza)+($order->pizza->medium_pizza_price * $order->medium_pizza)+($order->pizza->large_pizza_price * $order->large_pizza) }}</td>
                                         <td>{{ $order->body }}</td>
-                                        <td>{{ $order->status }}</td>
+                                        <td class="status">{{ $order->status }}</td>
                                         <form action="{{ route('order.status',$order->id) }}" method="post">
                                             @csrf
                                             <td>
@@ -90,7 +90,6 @@
     .link{
         color: whitesmoke;
         text-decoration: none; 
-        font-weight: 700
     }
     .link:hover{
         color:rgba(245, 245, 245, 0.572);

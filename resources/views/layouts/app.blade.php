@@ -7,17 +7,23 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>PizzaJo</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!--Font awesome-->
+    <script
+      src="https://kit.fontawesome.com/52339f9582.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!--favicon-->
-    <link rel="icon" href="{{ asset('favicon.ico')}}">
+    <link rel="icon" href="{{ asset('logomakr.png')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -27,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('frontpage') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    PizzaJo
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -64,10 +70,11 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                      <!--Admin area-->
                                     @if(auth()->user()->is_admin)
-                                        {{-- <li class="dropdown-item"> --}}
-                                            {{-- <a href="{{ route('pizza.index') }}" class="nav-link">Admin Area</a> --}}
-                                            <a href="{{ route('pizza.index') }}" class="dropdown-item">Admin Area</a>
-                                        {{-- </li> --}}
+                                            <a href="{{ route('user.order') }}" class="dropdown-item">{{ __('User order') }}</a>
+                                            <a href="{{ route('customers') }}" class="dropdown-item">{{ __('All Customers') }}</a>
+                                    @endif
+                                    @if(auth()->user()->is_admin == 0)
+                                        <a href="{{ route('home') }}" class="dropdown-item">{{ __('Your order history') }}</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -89,6 +96,38 @@
         <main class="py-4">
             @yield('content')
         </main>
+         <!--Footer-->
+        <footer class="footer">
+        <p>PizzaJo, Copyright &copy; 2022 develop by Joan Kouloumba</p>
+        <div>
+            <ul class="social-media">
+            <li>
+                <a
+                href="https://www.linkedin.com/in/joan-kouloumba-570a7680/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/joanKouloumba" target="_blank"
+                ><i class="fa-brands fa-twitter"></i
+                ></a>
+            </li>
+            <li>
+                <a href="https://github.com/jokoul" target="_blank"
+                ><i class="fa-brands fa-github"></i
+                ></a>
+            </li>
+            </ul>
+            <p>
+            <a
+                href="https://joan-kouloumba.in/professional-site/index.html#achievements"
+                >Visit more site like this on the professional site.</a
+            >
+            </p>
+        </div>
+        </footer>
     </div>
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>
