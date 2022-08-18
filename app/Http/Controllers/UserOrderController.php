@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserOrderController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,7 +16,6 @@ class UserOrderController extends Controller
     public function index()
     {
         $orders = Order::orderBy('id','DESC')->get();
-        // dd($orders);
         return view('order.index',compact('orders'));
     }
 
