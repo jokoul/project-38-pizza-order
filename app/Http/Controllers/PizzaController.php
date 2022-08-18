@@ -98,7 +98,7 @@ class PizzaController extends Controller
             $path = $pizza->image;
         }
         //If we want to create a new pizza for each update
-        $pizza = new Pizza;//we replace the retrieved pizza from db by an instantiate new object pizza
+        //$pizza = new Pizza;//we replace the retrieved pizza from db by an instantiate new object pizza
         //reassign properties of the new pizza object with data coming from the request form
         $pizza->name = $request->name;
         $pizza->description = $request->description;

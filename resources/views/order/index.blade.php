@@ -11,7 +11,13 @@
             </nav>
 
             <div class="card">
-                <div class="card-header">Order</div>
+                <div class="card-header">
+                    <span>Order</span>
+                    <div>
+                        <a class="link" href="{{ route('pizza.index') }}">View Pizza</a>
+                        <a class="link" href="{{ route('pizza.create') }}">Create Pizza</a>
+                    </div>
+                </div>
 
                 <div class="card-body">
                    <div class="table-responsive">
@@ -34,6 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                             @foreach($orders as $order)
                             <tr>
                                 <td>{{ $order->user->name }}</td>
@@ -60,6 +67,34 @@
                                 </form>
                             </tr>
                             @endforeach
+=======
+                                @foreach ($orders as $order)
+                                    <tr>
+                                        <th>{{ $order->id }}</th>
+                                        <td>{{ $order->phone }} / {{ $order->user->email }}</td>
+                                        <td>{{ $order->date }} / {{ $order->time }}</td>
+                                        <td>{{ $order->pizza->name }}</td>
+                                        <td>{{ $order->small_pizza }}</td>
+                                        <td>{{ $order->medium_pizza }}</td>
+                                        <td>{{ $order->large_pizza }}</td>
+                                        <td>{{ ($order->pizza->small_pizza_price * $order->small_pizza)+($order->pizza->medium_pizza_price * $order->medium_pizza)+($order->pizza->large_pizza_price * $order->large_pizza) }}</td>
+                                        <td>{{ $order->body }}</td>
+                                        <td class="status">{{ $order->status }}</td>
+                                        <form action="{{ route('order.status',$order->id) }}" method="post">
+                                            @csrf
+                                            <td>
+                                                <input name="status" type="submit" value="accepted" class="btn btn-primary btn-sm">
+                                            </td>
+                                            <td>
+                                                <input name="status" type="submit" value="rejected" class="btn btn-danger btn-sm">
+                                            </td>
+                                            <td>
+                                                <input name="status" type="submit" value="completed" class="btn btn-success btn-sm">
+                                            </td>
+                                        </form>
+                                    </tr>
+                                @endforeach
+>>>>>>> frontend
                         </tbody>
                     </table>
                    </div>
@@ -68,4 +103,26 @@
         </div>
     </div>
 </div>
+<style>
+    a.list-group-item{
+        font-size: 18px
+    }
+    a.list-group-item:hover{
+      background-color: rgb(177, 30, 30);
+      color: #fff;
+    }
+    .card-header{
+        background-color: rgb(177, 30, 30);
+        color: #fff;
+        font-size: 20px;
+    }
+    .link{
+        color: whitesmoke;
+        text-decoration: none; 
+    }
+    .link:hover{
+        color:rgba(245, 245, 245, 0.572);
+    }
+
+</style>
 @endsection

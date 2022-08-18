@@ -10,6 +10,10 @@ use App\Models\Pizza;
 class Order extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
+=======
+    protected $guarded=[];
+>>>>>>> frontend
 
     public function user()
     {
