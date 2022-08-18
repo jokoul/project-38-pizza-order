@@ -11283,6 +11283,9 @@ fieldset:disabled .btn {
 }
 
 /*FOOTER*/
+main {
+    height: 100vh;
+}
 .footer {
     min-height: 13rem;
     width: 100%;

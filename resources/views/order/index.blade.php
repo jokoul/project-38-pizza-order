@@ -11,10 +11,11 @@
                 </nav>
 
                 <div class="card ">
-                    <div class="card-header">order
-                        <a style="float:right;" href="{{route('pizza.index')}}"><button class="bnt btn-secondary btn-sm" style="margin-left: 5px;">View Pizza</button></a>
-                        <a style="float:right;" href="{{route('pizza.create')}}"><button class="bnt btn-secondary btn-sm">Add new Pizza</button></a>
-    
+                    <div class="card-header"> <span>Order</span>
+                    <div>
+                        <a class="link" href="{{ route('pizza.index') }}">View Pizza</a>
+                        <a class="link" href="{{ route('pizza.create') }}">Create Pizza</a>
+                    </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -88,6 +89,13 @@
         background-color: rgb(177, 30, 30);
         color: #fff;
         font-size: 20px;
+    }
+    .link{
+        color: whitesmoke;
+        text-decoration: none; 
+    }
+    .link:hover{
+        color:rgba(245, 245, 245, 0.572);
     }
 </style>
 @endsection
