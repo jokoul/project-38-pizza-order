@@ -21,7 +21,7 @@
                                 <p><input type="hidden" name="pizza_id" value="{{ $pizza->id }}"></p>
                                 <p><input type="date" name="date" class="form-control" required></p>
                                 <p><input type="time" name="time" class="form-control" required></p>
-                                <p><textarea name="body" class="form-control" required></textarea></p>                                
+                                <p><textarea name="body" class="form-control" required>Anything else?</textarea></p>                                
 
                                 <p>
                                     <button class="btn btn-danger" type="submit">Make Order</button>

@@ -8,7 +8,7 @@
                 <div class="card-header">Menu</div>
                 <div class="card-body">
                     <form action="{{ route('frontpage') }}" method="get">
-                        <a class="list-group-item list-group-item-action" href="/">All</a> 
+                        <a class="list-group-item list-group-item-action" href="{{ route('frontpage') }}">All</a> 
                         <input type="submit" value="Vegetarian" name="category" class="list-group-item list-group-item-action"/>
                         <input type="submit" value="Nonvegetarian" name="category" class="list-group-item list-group-item-action"/>
                         <input type="submit" value="Traditional" name="category" class="list-group-item list-group-item-action"/>

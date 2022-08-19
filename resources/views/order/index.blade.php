@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="card-body">
-                   < class="table-responsive">
+                   <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
