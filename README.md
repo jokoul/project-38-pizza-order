@@ -1,9 +1,9 @@
 # project-38-pizza-ordering
 
 ## Description
-This is a pizza ordering application that allows to manage pizza fast food business. Clients can order pizza through the application and manager can manage customers information and he can add, edit, delete pizza into the Menu board. I started by creating my database with models and migrations. Then, I generated controllers to handle form and crud opration on different ressources like pizzas, users, orders. Finally, I created corresponding template views with blade extension to get an user interface showing data. My application respect MVC design pattern.
+This is a pizza ordering app made with Laravel that allows to manage pizza fast food business. Clients can order pizza through the application and manager can manage customer informations and he can add, edit, delete pizza into the Menu board. I started by creating MySQL database with models and migrations. Then, I generated controllers to handle form and crud opration on different ressources like pizzas, users, orders. Finally, I created corresponding template views with blade extension to get an user interface showing data. My application respects MVC design pattern.
 ## Stack
-Laravel, Bootstrap
+Laravel, Bootstrap, MySQL
 ## Launch
 https://joan-kouloumba.in/pizzajo
 
